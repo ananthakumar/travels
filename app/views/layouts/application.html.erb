@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ftravels</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+ <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+<%= javascript_include_tag  "https://checkout.stripe.com/v2/checkout.js" , "application" %>
+<script src="lib/jquery.min.js"></script>
+
+  <script type="text/javascript" src="lib.jquery.timepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/jquery.timepicker.css" />
+
+  
+
+<!-- Latest compiled and minified JavaScript -->
+
+
+</head>
+ <body>
+    <div id="container">
+      <div id="user_header">
+
+        <% if current_agency %>
+        <h3>
+   
+        <%= link_to "Home", root_path %>
+
+         <%= link_to "Profile",:controller=>'agencies', :action => 'show', :id =>session[:agency_id] %>
+
+          <%= link_to "Edit",:controller=>'agencies', :action => 'edit', :id =>session[:agency_id] %>
+
+<%= link_to "Add Vehicles",:controller=>'agencies', :action => 'show', :id =>session[:agency_id] %>
+
+          welcome Logged in as <%= current_agency.name %>.
+          <%= link_to "Log Out", logout_path %>
+          
+
+</h3>
+          <% elsif current_customer %>
+             <h3>
+                   <%= link_to "Home", root_path %>
+
+      
+<%= link_to "Profile",:controller=>'customers', :action => 'show', :id =>session[:customer_id] %>
+          
+          <%= link_to "Edit",:controller=>'customers', :action => 'edit', :id =>session[:customer_id] %>
+          <%= link_to "book vehicles",:controller=>'vehicles', :action => 'index'%>
+          welcome Logged in as  <%= current_customer.name %>.
+          <%= link_to "Log Out", logout_path %>
+
+                     
+
+</h3>
+        <% else %>
+        <%= link_to "Home", root_path %>
+          <%= link_to "Sign Up customer",:controller=>'customers', :action => 'new'%>or
+          <%= link_to "Sign Up agency", :controller=>'agencies', :action => 'new' %> or
+          <%= link_to "Log In", login_path %>
+
+        <% end %>
+      </div>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

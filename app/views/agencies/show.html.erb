@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AK TRAVELS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    
+    <script src="js/bootstrap.min.js"></script>
+
+  
+    
+<div class="container">
+<h3>Agency Details</h1>
+
+<p>
+  <strong>Agency Name:</strong>
+  <%= @agency.name %>
+</p>
+ 
+<p>
+  <strong>Address:</strong>
+  <%= @agency.address %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @agency.email %>
+</p>
+<p>
+  <strong>Phno:</strong>
+  <%= @agency.phno %>
+</p>
+
+
+
+<h2>Vehicles</h2>
+
+<% @agency.vehicles.each do |vehicle| %>
+<div class="span3 my1" style="width: 260px; height: 300px;background-color:white;border: 1px solid #DDDDDD;margin-left:20px; 
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    display: block;
+    line-height: 20px;
+       transition: all 0.2s ease-in-out 0s;
+    border-color:black;
+    float:left;
+">
+  <p>
+    <strong>Name:</strong>
+    <%= vehicle.name %>
+  </p>
+  <p>
+    <strong>vehicle model:</strong>
+    <%= vehicle.vmodel %>
+  </p>
+  <p>
+    <strong>vehicle no:</strong>
+    <%= vehicle.vno %>
+  </p>
+  <p>
+    <strong>Amount per hour:</strong>
+    <%= vehicle.maxnopass %>
+  </p>
+ <p>
+    <strong>no of vehicles:</strong>
+    <%= vehicle.noofvehicles %>
+  </p>
+<p>
+    <strong>Description:</strong>
+    <%= vehicle.description %>
+  </p>
+
+
+ <p>
+  <%= link_to 'remove vehicle', [vehicle.agency, vehicle],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+<h1>Vehicle Add</h1>
+<%= form_for([@agency, @agency.vehicles.build]) do |f| %>
+
+<p>
+    <%= f.label :Name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :Vmodel %><br />
+    <%= f.text_field :vmodel %>
+  </p>
+<p>
+    <%= f.label :Vno %><br />
+    <%= f.text_field :vno %>
+  </p>
+<p>
+    <%= f.label :Amount_per_hour %><br />
+    <%= f.text_field :maxnopass %>
+  </p>
+<p>
+    <%= f.label :"no of vehicles" %><br />
+    <%= f.text_field :noofvehicles %>
+  </p>
+  <p>
+    <%= f.label :Description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+</div>
+<% end %>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/respond.js"></script>
+  </body>
+</html>

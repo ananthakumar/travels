@@ -1,0 +1,148 @@
+<html>
+
+<head>
+
+<style type="text/css">
+.my
+{
+height:400px;
+width:300px;
+float:left;
+}
+
+.my1
+{
+height:250px;
+width:300px;
+float:left;
+border-style:dotted;
+
+}
+
+</style>
+
+<body class="clearfix">
+
+    
+
+    <div >
+               <h1 align="center">List of Vehicles</h1>
+   
+        <div id="main">
+
+            
+            <div class="c1">
+                <h2>select vehicle</h2>
+                <div id="lovely-things-list">
+                    <input class="search" placeholder="Search" />
+                    <ul class="sort-by">
+                        <li class="sort btn" data-sort="name">Sort by name</li>
+                        <li class="sort btn" data-sort="category">Sort by Model</li>
+                    </ul>
+                   
+                    <ul class="list row-fluid container">
+                        
+
+
+                            
+                           <% @vehicle.each do |vehicle| %>
+                            <div class="span3 my1" style="width: 260px; height: 300px;background-color:white;border: 1px solid #DDDDDD;margin-left:20px; 
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    display: block;
+    line-height: 20px;
+       transition: all 0.2s ease-in-out 0s;
+    border-color:black
+">
+    <div>
+                         <br>
+                         <br>     
+                            <p>
+                            <strong>Owner Name:</strong>
+                            <span class="name"> <%= vehicle.name %></span>
+                            </p>
+                            <p>
+                          <strong >vehicle model:</strong>
+                          <span class="category"><%= vehicle.vmodel %></span>
+                             </p>
+                             <p>
+                            <strong>vehicle no:</strong>
+                            <%= vehicle.vno %>
+                            </p>
+                            <p>
+                              <strong>Amount per Hour</strong>
+                              <%= vehicle.maxnopass %>
+                            </p>
+                             <p>
+                                <strong>no of vehicles:</strong>
+                                <%= vehicle.noofvehicles %>
+                              </p>
+                            <p>
+                                <strong>Description:</strong>
+                            <%= vehicle.description %>
+                             </p>
+
+
+                            
+                            <div class="btn btn-success"><%= link_to 'Select vehicle', vehicle  %></div>
+</div>
+                              </div>
+
+                            <% end %>
+                           
+                           </ul>
+                          </div>
+                          </div>
+
+       </div>
+
+        
+
+   </body>
+
+
+
+
+
+<script type="text/javascript">
+
+    /*
+    * LOVELY THINGS
+    */
+
+    var options = {
+      valueNames: [ 'name', 'description', 'category' ]
+    };
+
+    var featureList = new List('lovely-things-list', options);
+
+    $('#filter-games').click(function() {
+        featureList.filter(function(item) {
+            if (item.values().category == "Game") {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return false;
+    });
+
+    $('#filter-beverages').click(function() {
+        featureList.filter(function(item) {
+            if (item.values().category == "Beverage") {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return false;
+    });
+    $('#filter-none').click(function() {
+        featureList.filter();
+        return false;
+    });
+</script>
+    </div>
+</body>
+</html>
+</html>

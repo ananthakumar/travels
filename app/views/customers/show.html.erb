@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AK TRAVELS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    
+    <script src="js/bootstrap.min.js"></script>
+
+  
+    
+
+
+
+<p>
+  <strong>customer Name:</strong>
+  <%= @customer.name %>
+</p>
+ 
+<p>
+  <strong>Address:</strong>
+  <%= @customer.address %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+<p>
+  <strong>Phno:</strong>
+  <%= @customer.phno %>
+</p>
+
+
+ 
+
+
+
+
+
+
+
+
+
+| <%= link_to 'Edit', edit_customer_path(@customer) %>
+
+
+
+
+
+<script src="js/respond.js"></script>
+  </body>
+</html>

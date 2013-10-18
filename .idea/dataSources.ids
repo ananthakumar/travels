@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails ftravels: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="d409eaa2-fb5d-44ea-9a55-9fcc13c011b9">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:C:\Users\boss\Desktop\final_style\final\ftravels\db\development.sqlite3</jdbc-url>
+    <libraries>
+      <library>
+        <url>file://</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

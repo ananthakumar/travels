@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AK TRAVELS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body background="images/my/bkk.jpg" >
+  <div class="row">
+     <div class="col-lg-6 col-lg-offset-1">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    
+    <script src="js/bootstrap.min.js"></script>
+
+  
+  
+
+
+
+<table class="table table-hover">
+  <tr>
+    <th>Agency name</th>
+    <th >Address</th>
+    <th>email</th>
+    <th>phno</th>
+  
+    <th><div class="btn btn-default">
+
+<%= link_to 'New agency', new_agency_path %></div></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @agencies.each do |agency| %>
+  <tr>
+    <td><%= agency.name %></td> 
+    <td><%= agency.address %> </td>
+    <td><%= agency.email %></td>
+    <td><%= agency.phno %></td>
+
+    <td><div class="btn btn-success"><%= link_to 'Show', agency  %></div></td>
+    <td><div class="btn btn-warning"><%= link_to 'Edit', edit_agency_path(agency) %></div></td>
+    <td><div class="btn btn-danger"><%= link_to 'Destroy', agency_path(agency),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
+  </tr>
+<% end %>
+</table>
+
+</div>
+</div>
+  
+
+
+<script src="js/respond.js"></script>
+
+  </body>
+</html>
+
